@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Thumbnails from './Thumbnails'
+import config from '../../config';
 
 const query = `
 {
@@ -25,7 +26,7 @@ const query = `
   
   `
 
-const { REACT_APP_SPACE_ID } = process.env;
+// const { REACT_APP_SPACE_ID } = process.env;
 
 export class OurTeam extends Component {
 
@@ -39,7 +40,7 @@ export class OurTeam extends Component {
     }
     componentDidMount() {
         window.fetch(
-            `https://graphql.contentful.com/content/v1/spaces/${REACT_APP_SPACE_ID}`,
+            `https://graphql.contentful.com/content/v1/spaces/${config.REACT_APP_SPACE_ID}`,
             {
                 method: "POST",
                 headers: {

@@ -1,7 +1,7 @@
 import React, { Component, createContext } from 'react';
-
+import config from '../config';
 const ServiceContext = createContext();
-const { REACT_APP_SPACE_ID, REACT_APP_CDA_ACCESS_TOKEN } = process.env;
+// const { REACT_APP_SPACE_ID, REACT_APP_CDA_ACCESS_TOKEN } = process.env;
 
 const query =`
     {
@@ -34,12 +34,12 @@ const query =`
     
     componentDidMount() {
         window.fetch(
-          `https://graphql.contentful.com/content/v1/spaces/${REACT_APP_SPACE_ID}`,
+          `https://graphql.contentful.com/content/v1/spaces/${config.REACT_APP_SPACE_ID}`,
           {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
-              Authorization: `Bearer ${REACT_APP_CDA_ACCESS_TOKEN}`
+              Authorization: `Bearer ${config.REACT_APP_CDA_ACCESS_TOKEN}`
             },
             body: JSON.stringify({ query }),
           }

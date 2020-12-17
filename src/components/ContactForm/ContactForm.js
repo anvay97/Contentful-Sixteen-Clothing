@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
-const {REACT_APP_SPACE_ID} = process.env;
+// const {REACT_APP_SPACE_ID} = process.env;
+import config from '../../config';
 
 class ContactForm extends Component {
 
@@ -76,7 +77,7 @@ class ContactForm extends Component {
         // console.log("Inside post");
         // console.log(this.state);
         window.fetch(
-            `https://api.contentful.com/spaces/${REACT_APP_SPACE_ID}/entries`,
+            `https://api.contentful.com/spaces/${config.REACT_APP_SPACE_ID}/entries`,
             {
                 method: "POST",
                 headers: {

@@ -11,9 +11,7 @@ import ProductDetail from './components/OurProduct/ProductDetail';
 import ErrorPage from './Pages/Error';
 import { Route, Switch } from 'react-router-dom';
 import FooterIdentity from './components/footer/FooterIdentity';
-
-// class App extends Component {
-//   render() {
+//
 function App() {
   return (
           <>

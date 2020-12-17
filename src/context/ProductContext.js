@@ -1,10 +1,10 @@
 import React, { Component, createContext } from 'react';
-
+import config from '../config';
 const ProdContext = createContext();
 
 
 
-    const { REACT_APP_SPACE_ID, REACT_APP_CDA_ACCESS_TOKEN } = process.env;
+    // const { REACT_APP_SPACE_ID, REACT_APP_CDA_ACCESS_TOKEN } = process.env;
 const query = `{
     productCollection(order:sys_firstPublishedAt_ASC) {
       items {
@@ -17,6 +17,7 @@ const query = `{
         price
         rating
         reviews
+        category
         details{
           json
         }
@@ -42,12 +43,12 @@ const query = `{
     };
     componentDidMount() {
         window.fetch(
-            `https://graphql.contentful.com/content/v1/spaces/${REACT_APP_SPACE_ID}`,
+            `https://graphql.contentful.com/content/v1/spaces/${config.REACT_APP_SPACE_ID}`,
             {
                 method: "POST",
                 headers: {
                     "content-type": "application/json",
-                    authorization: `Bearer ${REACT_APP_CDA_ACCESS_TOKEN}`
+                    authorization: `Bearer ${config.REACT_APP_CDA_ACCESS_TOKEN}`
                 },
                 body: JSON.stringify({
                     query

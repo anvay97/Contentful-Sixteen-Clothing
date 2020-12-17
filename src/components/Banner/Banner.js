@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Hero from './Hero';
 import HeroCarousel from './HeroCarousel';
-
+import config from '../../config';
 /*(where:{
       category_contains: "Home"
     })*/
@@ -34,12 +34,12 @@ export default class Banner extends Component {
 
   componentDidMount() {
     window.fetch(
-      `https://graphql.contentful.com/content/v1/spaces/${REACT_APP_SPACE_ID}`,
+      `https://graphql.contentful.com/content/v1/spaces/${config.REACT_APP_SPACE_ID}`,
       {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${REACT_APP_CDA_ACCESS_TOKEN}`
+          Authorization: `Bearer ${config.REACT_APP_CDA_ACCESS_TOKEN}`
         },
         body: JSON.stringify({ query }),
       }

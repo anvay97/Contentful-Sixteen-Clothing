@@ -1,6 +1,6 @@
 import React from 'react';
-
-const { REACT_APP_SPACE_ID, REACT_APP_CDA_ACCESS_TOKEN } = process.env;
+import config from '../../config';
+// const { REACT_APP_SPACE_ID, REACT_APP_CDA_ACCESS_TOKEN } = process.env;
 const query = `
 {
     identityCollection(where: {identityName: "Footer"}) {
@@ -19,12 +19,12 @@ class FooterIdentity extends React.Component {
 
     componentDidMount() {
         window.fetch(
-            `https://graphql.contentful.com/content/v1/spaces/${REACT_APP_SPACE_ID}`,
+            `https://graphql.contentful.com/content/v1/spaces/${config.REACT_APP_SPACE_ID}`,
             {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    Authorization: `Bearer ${REACT_APP_CDA_ACCESS_TOKEN}`
+                    Authorization: `Bearer ${config.REACT_APP_CDA_ACCESS_TOKEN}`
                 },
                 body: JSON.stringify({ query }),
             }

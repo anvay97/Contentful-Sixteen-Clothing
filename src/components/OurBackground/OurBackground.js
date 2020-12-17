@@ -3,8 +3,9 @@ import React  from "react";
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import parse from 'html-react-parser';
 
+import config from '../../config';
 
-const { REACT_APP_SPACE_ID, REACT_APP_CDA_ACCESS_TOKEN } = process.env
+// const { REACT_APP_SPACE_ID, REACT_APP_CDA_ACCESS_TOKEN } = process.env
 
 const query = `
 {
@@ -46,12 +47,12 @@ class OurBackground extends React.Component {
 
     componentDidMount() {
         window.fetch(
-            `https://graphql.contentful.com/content/v1/spaces/${REACT_APP_SPACE_ID}`,
+            `https://graphql.contentful.com/content/v1/spaces/${config.REACT_APP_SPACE_ID}`,
             {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    Authorization: `Bearer ${REACT_APP_CDA_ACCESS_TOKEN}`
+                    Authorization: `Bearer ${config.REACT_APP_CDA_ACCESS_TOKEN}`
                 },
                 body: JSON.stringify({ query }),
             }
